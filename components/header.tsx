@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link"; // ← AGREGADO
 import { signOut } from "aws-amplify/auth"; // si no usas Amplify, puedes quitar esta línea
 
 export default function Header() {
@@ -17,9 +18,9 @@ export default function Header() {
   return (
     <header style={styles.header}>
       {/* ===== LOGO ===== */}
-      <a href="/" style={styles.logo}>
+      <Link href="/" style={styles.logo}>
         📸 Mi Galería
-      </a>
+      </Link>
 
       {/* ===== MENÚ ===== */}
       <div style={{ position: "relative" }}>
@@ -32,21 +33,21 @@ export default function Header() {
 
         {menuOpen && (
           <div style={styles.dropdown}>
-            <a
+            <Link
               href="/perfil"
               style={styles.dropdownItem}
               onClick={() => setMenuOpen(false)}
             >
               👤 Ir a perfil
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/pagos"
               style={styles.dropdownItem}
               onClick={() => setMenuOpen(false)}
             >
               💳 Actualizar a pagar
-            </a>
+            </Link>
 
             <button
               style={styles.dropdownItemLogout}
